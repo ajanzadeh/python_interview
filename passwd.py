@@ -21,7 +21,6 @@ for line in group_file:
       groups.append(line.split(":")[3].strip("\n").split(","))
 
 for user in users_membership:
-    cnt = 0
     for memberes in groups:
         for member in memberes:
           if user == member:
