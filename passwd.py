@@ -1,3 +1,4 @@
+# generates a dict of users and how many groups they have
 import time
 import random
 import glob
