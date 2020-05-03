@@ -1,3 +1,35 @@
+# Problem: Package dependencies
+#
+# There are a lot of different ways to install packages on different operating systems.
+# One thing that most of them have in common is a way to handle dependencies.
+# When one package depends on another package the dependency must be installed first.
+#
+# The following text file lists packages (A,B,C,..etc) followed by their corresponding package dependencies.
+#
+# example: deps.txt
+#
+# A:D,B
+# B:C,E
+# C:D,E
+#
+# First task is we read in the file, populating a data structure where
+# keys are the package names and the values are an array of dependencies
+#
+# deps = {
+# "A" : ["D","B"],
+# "B" : ["C", "E"],
+# "C" : ["D", "E"]
+# }
+#
+#
+# Next is to build the dependency management part of a package manager.
+# For example, to install package C you must also install package D and E.
+# Write a function get_deps() that given a package name returns a list of package dependencies.
+#
+# def b:
+# b
+
+
 def read_file():
   data = dict()
   with open("deps.txt", "r") as deps:
