@@ -22,7 +22,7 @@ def sysstate():
 
 api = Flask(__name__)
 @api.route('/state', methods=['GET'])
-def get_companies():
+def get_sysstate():
   return json.dumps(sysstate())
 
 if __name__ == '__main__':
