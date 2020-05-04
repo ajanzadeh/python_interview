@@ -1,8 +1,6 @@
 #! /bin/env python
 # generates a dict of users and how many groups they have
 
-#Cracking the Coding Interview: 189 Programming Questions and Solutions
-
 passwd_file = "/etc/passwd"
 group_file = "/etc/group"
 
