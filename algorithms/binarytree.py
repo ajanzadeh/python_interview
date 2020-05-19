@@ -4,11 +4,13 @@ class Node:
         self.data = data
         self.right = None
         self.left = None
+        print("selfdata",data)
 
 
     def insert(self,data):
 
         if self.data:
+            print("debug",self.data)
             if self.data < data:
               if self.right == None:
                  self.right = Node(data)
@@ -31,7 +33,8 @@ class Node:
             self.right.PrintTree()
 
 root = Node(10)
-root.insert(29)
-root.insert(18)
-root.insert(1)
+root.insert(9)
+root.insert(8)
+# root.insert(1)
+# root.insert(20)
 root.PrintTree()
