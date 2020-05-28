@@ -22,46 +22,46 @@ def game_of_life(size, generaion_number,matrix,generation_count):
     # calculate element boundary
     def get_neighbor(i,j,size):
             # normal condition
-            fate = 0
-            if 1 >=  i < size-1 and size-1 < j >=1:
+            if 1 <=  i < size-1 and 1 <= j < size-1 :
                   fate = matrix[i-1][j-1] +  matrix[i-1][j] +  matrix[i-1][j+1]  + \
                          matrix[i][j-1] +                        matrix[i][j+1]  + \
                          matrix[i+1][j-1] +  matrix[i+1][j] +  matrix[i+1][j+1]
-            if 1 >=  i < size-1 and j == size-1 :
+            elif 1 >=  i < size-1 and j == size-1 :
                   fate = matrix[i-1][j-1] +  matrix[i-1][1] +  \
                          matrix[i][j-1] +\
                          matrix[i+1][j-1] +  matrix[i+1][1]
             # corner 4
-            if i == size-1 and j == size-1 :
+            elif i == size-1 and j == size-1 :
                       fate = matrix[i-1][j-1] +  matrix[i-1][1] +  \
                              matrix[i][j-1]
             # corner 1
-            if i == 0 and j == 0 :
+            elif i == 0 and j == 0 :
                       fate =                        matrix[i][j+1]    + \
                                 matrix[i+1][j+1] +  matrix[i+1][j+1]
             # corner 2
-            if i == 0 and j == size-1:
+            elif i == 0 and j == size-1:
                   fate = matrix[i][j-1] + \
                          matrix[i+1][j-1] +  matrix[i+1][j]
             #corner 3
-            if i == size-1 and j == 0:
+            elif i == size-1 and j == 0:
                   fate =  matrix[i-1][j] +  matrix[i-1][j+1]  + \
                                                matrix[i][j+1]
             # top
-            if i == 0 and  0 < j < size-1 :
+            elif i == 0 and  0 < j < size-1 :
                       fate = matrix[i][j-1] +               matrix[i][j+1]    + \
                              matrix[i+1][j-1] +  matrix[i+1][j] +  matrix[i+1][j+1]
-            if i == size-1  and 0 < j < size-1 :
+            elif i == size-1  and 0 < j < size-1 :
                       fate = matrix[i-1][j-1] +  matrix[i-1][j] +  matrix[i-1][j+1]  + \
                              matrix[i][j-1] +                        matrix[i][j+1]
-            if j == 0 and 0 < i < size-1:
+            elif j == 0 and 0 < i < size-1:
                   fate =   matrix[i-1][j] +  matrix[i-1][j+1]  + \
                                              matrix[i][j+1]    + \
                            matrix[i+1][j] +  matrix[i+1][j+1]
-            if j == size-1 and 0 < i < size-1 :
+            elif j == size-1 and 0 < i < size-1 :
                       fate = matrix[i-1][j-1] +  matrix[i-1][j]  + \
                              matrix[i][j-1]                      +  \
                              matrix[i+1][j-1] +  matrix[i+1][j]
+            else: print(i,j)
             return fate
 
 
@@ -89,7 +89,7 @@ def game_of_life(size, generaion_number,matrix,generation_count):
 
 
 
-    print("generate number",generation_count)
+    print("generate number growth",generation_count)
     print("\n".join(map(str,matrix)).replace("-2","#").replace("0","x").replace("1","a"))
     generation_count += 1
     game_of_life(size,generaion_number,matrix,generation_count)
