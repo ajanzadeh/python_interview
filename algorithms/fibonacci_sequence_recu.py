@@ -1,3 +1,5 @@
+0, 1, 1, 2, 3, 5, 8, 13, 21,
+
 def sequence(a, b, x):
     result = [a,b]
 
@@ -5,11 +7,9 @@ def sequence(a, b, x):
         if counter == None:
             counter = 0
         c = a + b
-        print(counter)
         counter += 1
         result.append(c)
         if counter < end:
-            print(counter)
             calculate(b,c,result,end,counter)
         else:
             return result

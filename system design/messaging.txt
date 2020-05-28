@@ -1,0 +1,51 @@
+####
+
+Backup: Restore
+Ack
+Read
+How Many user
+Web/Second clinet
+Auth: phone number
+
+messaging systems
+
+               Phone 2 >>> register >>> API server will send a auth code>> phone 2 send auth code back>> Auth server will send a Token.
+
+
+
+
+                pone 1  --->>>   Api server <--->>            message queue                 << -- API server <<<< phone 2
+                                                                              ----->> Ack Q got it >> Api Server >> phone 2. IF Cleint on phone didn't get ACK form Q in 20 Second, then  alert user.. Messg didn't deliver. if Got it it will be 1 Tick
+               phone 1 ---API ---- Server ----                Q
+                                                              ACK  notification
+                                                              Read notification
+
+                                                              Cassandra(history)
+
+
+
+
+
+        phone2:  <message:"Hi"| System message<it's two tick gray or two tick blue>><SendTO:<><SendFrom><Time stamp> > -----> Q: per conversation [Ad: 1. phone number can change the conversation stay the same, Con: too many Q ]
+                                                                         Q: per phone number [AD. less Q, Con: The number of messages in Q it will higher and it's also mixed The client has to do the sepration]
+
+
+
+        Webc2 :  <message:"Hi"><SendTO:<><SendFrom> -----> Q
+
+
+        phone1: Req ---Q: <messages for the number>
+
+
+
+
+        Group:<Message:"Hi" <Send TO: Group NAME> <Send From phone number><TimeStamp> > ---- Q: per Group name
+              Reg: Every phone number is a subscriber
+
+
+
+  Weekly backup for client: Client --->> Key: Conversation , Value: Messages
+  For media store S3 .. We put location to DB.
+
+PubSub one to many vs Q 1:1
+Token Range 
